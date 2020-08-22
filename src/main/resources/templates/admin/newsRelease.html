@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>后台管理_新闻发布</title>
+	<link rel="Shortcut Icon" href="admin/img/logo.ico">
+	<link rel="stylesheet" type="text/css" href="admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="admin/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="admin/css/main.css">
+	<link rel="stylesheet" type="text/css" href="admin/css/newsRelease.css">
+	<script type="text/javascript" src="admin/js/jquery-3.3.1.min.js"></script>
+	<script src="admin/js/wangEditor.min.js"></script>
+	<script type="text/javascript" src="admin/js/main.js"></script>
+	<script type="text/javascript" src="admin/js/newsRelease.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-2" style="height: 60px"></div>
+			<div class="col-xs-2" id="web-top-2">
+				<span class="word-backstage">后台管理系统</span>
+				<span class="word-yun">云校园</span>
+			</div>
+			<div class="col-xs-10" style="height: 60px"></div>
+			<div class="col-xs-10" id="web-top-10">
+				<span class="glyphicon glyphicon-refresh reload"></span>
+				<input type="text" class="inp-search" placeholder="Search">
+				<div class="top-info">
+					<span class="info-account">Wei</span>
+					<img src="admin/img/wei.jpg" alt="" class="info-head">
+					<span class="info-config">安全退出</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2" style="height: 100%;"></div>
+			<div class="col-xs-2" id="web-nav">
+				<div class="web-img"></div>
+				<ul class="ul-nav-one">
+					<li class="li-one" id="btn-statistics">
+						<div class="nav-icon-div">
+							<span class="fa fa-bar-chart nav-icon"></span>
+						</div>
+						<a>网站统计</a>
+					</li>
+					<li class="li-one">
+						<div id="news">
+							<div class="nav-icon-div">
+								<span class="fa fa-newspaper-o nav-icon"></span>
+							</div>
+							<a>新闻&通知</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two" id="ul-two-news">
+							<li id="btn-newsRelease">
+								<div class="nav-icon-div">
+									<span class="fa fa-pencil-square-o nav-icon"></span>
+								</div>
+								<a>新闻发布</a>
+							</li>
+							<li id="btn-newsStatistics">
+								<div class="nav-icon-div">
+									<span class="glyphicon glyphicon-list-alt nav-icon"></span>
+								</div>
+								<a>新闻统计</a>
+							</li>
+							<li id="btn-notice">
+								<div class="nav-icon-div">
+									<span class="fa fa-podcast nav-icon"></span>
+								</div>
+								<a>通知</a>
+							</li>
+							<li id="btn-pictureSwitching">
+								<div class="nav-icon-div">
+									<span class="fa fa-picture-o nav-icon"></span>
+								</div>
+								<a>图片切换</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="active">
+							<div class="nav-icon-div">
+								<span class="fa fa-bullhorn nav-icon"></span>
+							</div>
+							<a>活动中心</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-alreadyOnline">
+								<div class="nav-icon-div">
+									<span class="fa fa-desktop nav-icon"></span>
+								</div>
+								<a>已上线</a>
+							</li>
+							<li id="btn-toBeAudited">
+								<div class="nav-icon-div">
+									<span class="fa fa-file-code-o nav-icon"></span>
+								</div>
+								<a>待审核</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="shiwu">
+							<div class="nav-icon-div">
+								<span class="fa fa-paper-plane nav-icon"></span>
+							</div>
+							<a>失物招领</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-published">
+								<div class="nav-icon-div">
+									<span class="fa fa-puzzle-piece nav-icon"></span>
+								</div>
+								<a>已发布</a>
+							</li>
+							<li id="btn-toBeAudited-lost">
+								<div class="nav-icon-div">
+									<span class="fa fa-pencil nav-icon"></span>
+								</div>
+								<a>待审核</a>
+							</li>
+							<li id="btn-report">
+								<div class="nav-icon-div">
+									<span class="fa fa-exclamation-triangle nav-icon"></span>
+								</div>
+								<a>举报受理</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="xianzhi">
+							<div class="nav-icon-div">
+								<span class="fa fa-umbrella nav-icon"></span>
+							</div>
+							<a>闲置市场</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-statistics-market">
+								<div class="nav-icon-div">
+									<span class="fa fa-database nav-icon"></span>
+								</div>
+								<a>统计</a>
+							</li>
+							<li id="btn-report-market">
+								<div class="nav-icon-div">
+									<span class="fa fa-exclamation-triangle nav-icon"></span>
+								</div>
+								<a>举报受理</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one" id="btn-user">
+						<div class="nav-icon-div">
+							<span class="fa fa-user nav-icon"></span>
+						</div>
+						<a>用户管理</a>
+					</li>
+					<li class="li-one">
+						<div id="xinxiang">
+							<div class="nav-icon-div">
+								<span class="fa fa-envelope nav-icon"></span>
+							</div>
+							<a>信箱</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-write">
+								<div class="nav-icon-div">
+									<span class="glyphicon glyphicon-edit nav-icon"></span>
+								</div>
+								<a>写信</a>
+							</li>
+							<li id="btn-messageBoard">
+								<div class="nav-icon-div">
+									<span class="fa fa-archive nav-icon"></span>
+								</div>
+								<a>留言板</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-10" id="web-center">
+				<div class="row">
+					<div class="col-md-12" id="center-top-1">
+						<span class="glyphicon glyphicon-home" id="icon-home"></span>
+						<a href="home" class="top-1-style">
+							HOME
+						</a>
+						<span class="shuangxiegang">//</span>
+						<a href="newsRelease" class="top-1-style active">
+							新闻&通知
+						</a>
+					</div>
+					<div class="col-md-12" id="center-top-2">
+						<a href="newsRelease" class="top-1-style">
+							新闻&通知
+						</a>
+						<span class="fa fa-angle-right jiantou"></span>
+						<a href="newsRelease" class="top-1-style top-2-style active-1">新闻发布</a>
+						<a href="newsStatistics" class="top-1-style top-2-style">新闻统计</a>
+						<a href="notice" class="top-1-style top-2-style">通知</a>
+						<a href="pictureSwitching" class="top-1-style top-2-style">图片切换</a>
+					</div>
+					<div class="col-md-12" id="center-box">
+						<div class="row">
+							<div class="col-md-12" id="editNews">
+								<div class="form-group" style="width: 60%;">
+									<div class="input-group">
+									  <div class="input-group-addon" style="height: 40px;">新闻标题</div>
+									  <input type="text" class="form-control" id="newsTitle" placeholder="新颖的新闻标题更吸引人">
+									</div>
+								</div>
+								<div id="editor"></div>
+								<div class="form-group" style="width: 400px;margin-top: 20px;">
+									<label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+									<div class="input-group">
+									  <div class="input-group-addon">作者：</div>
+									  <input type="text" class="form-control" id="exampleInputAmount" placeholder="">
+									  <div class="input-group-addon">多个作者用“、”隔开</div>
+									</div>
+								</div>
+								<button class="btn-up">立即发布</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mask">
+		<div class="popup-1">
+			<img src="admin/img/uploading.gif" alt="">
+			&nbsp&nbsp&nbsp&nbsp正在发布
+		</div>
+		<div class="popup-2">
+			发布成功
+		</div>
+		<div class="popup-3">
+			请求出错，发布失败
+		</div>
+	</div>
+</body>
+</html>

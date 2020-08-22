@@ -1,0 +1,396 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  _background-image: url(about:blank);
+  _background-attachment: fixed;
+}
+body {
+  height: 100%;
+  width: 100%;
+  min-width: 1024px;
+  position: relative;
+  overflow: hidden;
+  /* background: rgba(0, 0, 0, 0.7); */
+}
+li {
+  list-style: none;
+}
+.zhao {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -10;
+}
+
+video {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  width: auto;
+  /*加滤镜*/
+  /*filter: blur(15px); //背景模糊设置 */
+  /*-webkit-filter: grayscale(100%);*/
+  /* filter: grayscale(50%); */
+  /* //背景灰度设置 */
+  z-index: -11;
+}
+source {
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  width: auto;
+}
+/*-------------------------------------------------------------------------------------------bigger本身  */
+#bigger {
+  /* background: #facdbc; */
+  background: #ededed;
+  /* background: rgb(204, 204, 162); */
+  overflow: hidden;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 49;
+  height: 0;
+  width: 0;
+  left: -500px;
+  top: -900px;
+  transform-origin: -50% -20%;
+}
+/*-------------------------------------------------------------------------------------------bigger内部  */
+.fade_bigger_a {
+  display: block !important;
+}
+#bigger_rightin {
+  position: fixed;
+  display: none;
+  z-index: 49;
+  right: 0;
+  bottom: 0;
+  height: 90%;
+  width: 88%;
+}
+.bigger_bar {
+  position: absolute;
+  top: 30%;
+}
+.bigger_bar_item {
+  display: block;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  opacity: 0;
+  text-align: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.bigger_bar_item_active {
+  text-indent: 1em;
+  transition: all 0.2s;
+}
+/* ------------------------------------------barto */
+#zj-map {
+  width: 1024px;
+  height: 1000px;
+  margin: 0 auto;
+}
+#map_yd {
+  font-size: 2rem;
+  position: absolute;
+  top: 300px;
+}
+.bar_to {
+  height: 100%;
+  width: 100%;
+  display: none;
+  padding: 30px;
+  padding-right: 80px;
+  overflow: hidden;
+}
+
+.bar_to_5 > div,
+.bar_to_4 > div,
+.bar_to_3 > div,
+.bar_to_2 > div {
+  width: 50%;
+  float: left;
+  height: 90%;
+  overflow: hidden;
+}
+.bar_to_6 {
+  width: 900px;
+  margin: 0 auto;
+}
+.bar_to_6 > div {
+  width: 100%;
+}
+.bar_to_6 button {
+  background: #5a5858;
+  color: #fff;
+}
+.bar_to_6 button:hover {
+  background: #646262;
+}
+.to_bar_img {
+  height: 100%;
+  margin: 0 auto;
+}
+.bar_to_n {
+  padding: 60px;
+}
+.bar_to_n .mdui-typo-headline:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 32px;
+  margin-top: 15px;
+  background-color: rgb(0, 0, 0);
+}
+.bar_to_lm {
+  margin-top: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.long-arrow-right {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 40px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transform: rotate(135deg);
+  transition: all 0.5s;
+}
+.long-arrow-right::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 36px;
+  background-color: black;
+  transform: rotate(-45deg) translate(12px, 4px);
+  left: 0;
+  top: 0;
+}
+.bar_to_lm:hover .long-arrow-right {
+  margin-left: 25px;
+}
+/*-------------------------------------------------------------------------------------------title  */
+#title {
+  font-family: "qnhfx";
+  font-size: 300px;
+  text-align: center;
+  display: block;
+  position: relative;
+  cursor: default;
+  color: rgba(255, 255, 255, 1);
+}
+
+/* --------------------------------------------------------------------------------------------menu */
+#menu-wrapper {
+  overflow: hidden;
+  max-width: 100%;
+  cursor: pointer;
+  position: fixed;
+  top: 50px;
+  left: 30px;
+  z-index: 51;
+}
+
+#menu-wrapper #hamburger-menu {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  margin: 15px;
+}
+
+#menu-wrapper #hamburger-menu span {
+  opacity: 1;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #fff;
+  position: absolute;
+  transform: rotate(0deg);
+  transition: 0.4s ease-in-out;
+}
+
+#menu-wrapper #hamburger-menu span:nth-child(1) {
+  top: 0;
+}
+#menu-wrapper #hamburger-menu span:nth-child(2) {
+  top: 9px;
+}
+#menu-wrapper #hamburger-menu span:nth-child(3) {
+  top: 18px;
+}
+#menu-wrapper #hamburger-menu.open span:nth-child(1) {
+  transform: translateY(9px) rotate(135deg);
+  background-color: #000;
+}
+#menu-wrapper #hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-60px);
+  background-color: #000;
+}
+#menu-wrapper #hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-135deg);
+  background-color: #000;
+}
+
+.accordion-toggle,
+.accordion-content {
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.accordion-content {
+  display: none;
+}
+
+.accordion-toggle a:before,
+.accordion-toggle a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 15px;
+  height: 2px;
+  margin-top: -1px;
+  background-color: #5a5858;
+  transform-origin: 50% 50%;
+  transition: all 0.3s ease-out;
+}
+
+.accordion-toggle a:before {
+  transform: rotate(-90deg);
+  opacity: 1;
+  z-index: 2;
+}
+
+.accordion-toggle.active-tab {
+  background: yellowgreen;
+  transition: all 0.3s ease;
+}
+.accordion-toggle a.active:before {
+  transform: rotate(0deg);
+  background: #fff !important;
+}
+
+.accordion-toggle a.active:after {
+  transform: rotate(180deg);
+  background: #fff !important;
+  opacity: 0;
+}
+/* ----------------------------------------------------注册登录--------------------------------------------------------------------------- */
+#sign_in_btn {
+  position: fixed;
+  right: 40px;
+  top: 50px;
+  z-index: 51;
+  height: 50px;
+  width: 50px;
+}
+#sign_in_btn i {
+  color: #fff;
+  font-size: 50px;
+  line-height: 50px;
+}
+.change_color {
+  color: #000 !important;
+}
+#login_dialog {
+  height: 80%;
+  width: 580px;
+}
+
+#sign_in_body {
+  height: 100%;
+  background: #fff;
+  padding-top: 40px;
+}
+#sign_in_body .mdui-tab a {
+  font-size: 24px;
+}
+#sign_in_body > .mdui-container:first-child {
+  height: 72px;
+}
+#sign_in_body .ipt > label,
+#sign_in_body .ipt > input {
+  font-size: 24px;
+}
+#sign_in_body .mdui-col-xs-12 {
+  margin-top: 35px;
+}
+#sign_in_body button {
+  height: 60px;
+  width: 160px;
+  font-size: 24px;
+  color: #fff !important;
+}
+#sign_in_body .mdui-textfield {
+  margin-top: 10px;
+}
+/* ---------------------------------------------------版权--------------------------------------------------------------- */
+#banquan {
+  position: fixed;
+  z-index: 51;
+  bottom: 30px;
+  color: #fff;
+  font-size: 16px;
+  left: 30px;
+}
+/* -------------------------------------------------------------------------------------font+适应 */
+@media screen and (max-width: 1513px) {
+  .bigger_bar_item,
+  #map_yd {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .bigger_bar_item,
+  #map_yd {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .bar_to_5 > div,
+  .bar_to_4 > div,
+  .bar_to_3 > div,
+  .bar_to_2 > div {
+    width: 100%;
+    position: absolute;
+    color: #fff;
+  }
+  .bar_to_n .mdui-typo-headline:after {
+    background-color: #fff;
+  }
+  .long-arrow-right {
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+  }
+  .long-arrow-right::after {
+    background-color: #fff;
+  }
+}
+@font-face {
+  font-family: "qnhfx";
+  src: url("../fonts/FangYuanJiFengCaoShu-2.ttf");
+}

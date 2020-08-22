@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>知乡后台管理_登录</title>
+
+    <link rel="Shortcut Icon" href="admin/img/logo.ico">
+    <link rel="stylesheet" href="admin/css/index.css">
+    <script src="admin/js/jquery-3.3.1.min.js"></script>
+    <script src="admin/js/index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="container-center">
+                <h2>知 乡 — 后 台 管 理 系 统</h2>
+                <img src="admin/img/mine.png" width="30px" height="30px" alt="">
+                <input type="text" class="inp-account" placeholder="输入账号">
+                <br/>
+                <img src="admin/img/lock.png" width="30px" height="30px" alt="">
+                <input type="password" class="inp-password" placeholder="输入密码">
+                <br/>
+                <button class="btn-up">登 录</button>
+            </div>
+        </form>
+    </div>
+    <div class="city-div">
+        <span>当前城市：</span>
+        <span class="nowCity blank-li-active">杭州市</span>
+    </div>
+    <div class="haveCity-blank">
+        <div class="blank-top">
+            <img src="admin/img/top.png" alt="">
+        </div>
+        <div class="blank-bottom">
+            <ul class="blank-ul">
+                <li class="blank-li blank-li-active" index="0">
+                    杭州
+                </li>
+                <li class="blank-li" index="1">
+                    宁波
+                </li>
+                <li class="blank-li" index="2">
+                    温州
+                </li>
+                <li class="blank-li" index="3">
+                    绍兴
+                </li>
+            </ul>
+            <ul class="blank-ul">
+                <li class="blank-li" index="4">
+                    湖州
+                </li>
+                <li class="blank-li" index="5">
+                    嘉兴
+                </li>
+                <li class="blank-li" index="6">
+                    金华
+                </li>
+                <li class="blank-li" index="7">
+                    衢州
+                </li>
+            </ul>
+            <ul class="blank-ul">
+                <li class="blank-li" index="8">
+                    台州
+                </li>
+                <li class="blank-li" index="9">
+                    丽水
+                </li>
+                <li class="blank-li" index="10">
+                    舟山
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

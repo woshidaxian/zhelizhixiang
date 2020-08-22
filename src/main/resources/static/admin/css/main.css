@@ -1,0 +1,271 @@
+ul li{
+    list-style: none;
+}
+#web-top-2{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: #d6d2cc;
+    padding: 0;
+    position: fixed;
+    z-index: 2;
+}
+.word-backstage{
+    font-size: 20px;
+}
+.word-yun{
+    font-size: 20px;
+    font-weight: bold;
+}
+.word-yun:before{
+    content: "|";
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: -2px;
+    font-weight: normal;
+}
+#web-top-10{
+    background: #f1e8dc;
+    height: 60px;
+    position: fixed;
+    right: 0;
+    z-index: 99999;
+}
+.reload{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    color: #a7a7a7;
+}
+.reload:hover{
+    color: black;
+    cursor: pointer;
+}
+.inp-search{
+    width: 26%;
+    margin-left: 16%;
+    border: none;
+    outline: none;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 14px;
+    text-indent: 14px;
+}
+.top-info{
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+}
+.info-head{
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+.info-config{
+    display: block;
+    float: right;
+    cursor: pointer;
+    background: url(../img/power.png) no-repeat;
+    background-size: 25px;
+    width: 50px;
+    height: 50px;
+    margin-left: 18px;
+    margin-top: 19px;
+}
+.info-config:hover{
+    background: url(../img/redpower.png) no-repeat;
+    background-size: 25px;
+    width: 50px;
+    height: 50px;
+}
+#web-nav{
+    height: 1000px;
+    background: #f4f2ee;
+    padding: 0;
+    position: fixed;
+    border-right: 1px solid #dfdfdf;
+}
+.web-img{
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    padding: 0;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+.web-img img{
+    width: 100px;
+}
+.ul-nav-one{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #fbf9f5;
+}
+.ul-nav-one a{
+    color: #88827a;
+    height: 44px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-indent: 10px;
+    display: inline-block;
+}
+.ul-nav-one a:hover{
+    text-decoration: none;
+}
+/* 一级菜单 */
+.li-one{
+    width: 100%;
+    line-height: 44px;
+    border: 1px solid #f6f3ef;
+}
+.li-one:hover{
+    background: #ffffff;
+    cursor: pointer;
+}
+/* 二级菜单 */
+.ul-two{
+    display: none;
+}
+/* 图标 */
+.nav-icon{
+    font-size: 18px;
+    color: #a9a197;
+}
+.nav-icon-div{
+    float: left;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    border-right: 1px solid #f6f3ef;
+    box-sizing: border-box;
+}
+.ul-two{
+    padding: 0;
+}
+.ul-two li:hover{
+    background: #f3f3f3;
+}
+/* 三角标 */
+.triangle{
+    float: right;
+    line-height: 44px;
+    display: block;
+    width: 20px;
+    height: 44px;
+}
+#center-top-1{
+    height: 44px;
+    border-bottom: 1px solid #ecebe8;
+}
+#icon-home{
+    color: #c4bfb9;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    width: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+.top-1-style{
+    font-size: 18px;
+    color: #c4bfb9;
+}
+.top-1-style:hover{
+    text-decoration: none;
+    color: #999;
+}
+.top-1-style:focus{
+    text-decoration: none;
+    color: #c4bfb9;
+}
+.active{
+    color: #999;
+}
+.shuangxiegang{
+    font-size: 19px;
+    color: #c4bfb9;
+}
+#center-top-2{
+    height: 44px;
+    line-height: 44px;
+}
+.jiantou{
+    font-size: 20px;
+    color: #c4bfb9;
+    margin-left: 12px;
+}
+.top-2-style{
+    display: inline-block;
+    padding: 0px 26px;
+    font-size: 16px;
+    margin-left: 4px;
+}
+.top-2-style:focus{
+    color: #999;
+}
+.active-1{
+    background: #f8f8f7;
+    color: #999;
+}
+/* 这里不是每张页面都会用的 */
+
+
+#center-box{
+    background: #f8f8f7;
+    height: auto;
+    padding-bottom: 50px;
+}
+
+.con-otherbox{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    display: none;
+}
+.otherbox{
+    min-width: 600px;
+    width: auto;
+    max-width: 1000px;
+    height: 700px;
+    margin: auto auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+
+}
+.closediv{
+    height: 80px;
+    float: right;
+    padding-right: 20px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.closediv:hover{
+    font-size: 38px;
+    color: red;
+    transition: all 0.4s;
+}
+.otherboxcenter{
+    height: 620px;
+    overflow: auto;
+    padding: 20px 50px;
+}
+.divImgStyle{
+    width: 600px;
+    margin-bottom: 20px;
+}
+.div-word{
+    font-size: 17px;
+    line-height: 32px;
+}

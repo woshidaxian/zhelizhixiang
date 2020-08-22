@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta name="_csrf" th:content="${_csrf.token}"/>
+      <!-- default header name is X-CSRF-TOKEN -->
+      <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+      <meta name="_username" th:content="${session.user.username}"/>
+      <link rel="Shortcut Icon" href="admin/img/logo.ico">
+    <link rel="stylesheet" href="css/mdui.min.css" />
+    <link rel="stylesheet" href="css/talkbar.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <title>Document</title>
+      <script src="js/jquery.min.js"></script>
+    <script src="js/talkbar.js"></script>
+    <script src="js/mdui.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+
+  </head>
+  <body
+    class="mdui mdui-appbar-with-toolbar mdui-appbar-with-tab"
+  >
+    <div class="talkbody">
+      <!-- 中间主体部分 包括了fixed的bar和下部分 -->
+      <div class="talkbar_thin mdui-appbar-fixed mdui-appbar">
+        <div class="mdui-toolbar mdui-color-brown-300">
+          <span class="mdui-typo-title">知乡交流社区</span>
+          <div class="mdui-toolbar-spacer"></div>
+          <div
+            class="mdui-textfield mdui-textfield-expandable mdui-float-right"
+          >
+            <button
+              class="mdui-textfield-icon mdui-btn mdui-btn-icon"
+              mdui-tooltip="{content: '搜索'}"
+            >
+              <i class="mdui-icon material-icons">search</i>
+            </button>
+            <input
+              class="mdui-textfield-input"
+              type="text"
+              placeholder="大家都在搜：阳明心学"
+            />
+            <button class="mdui-textfield-close mdui-btn mdui-btn-icon">
+              <i class="mdui-icon material-icons">close</i>
+            </button>
+          </div>
+          <a
+            href="javascript:;"
+            class="mdui-btn mdui-btn-icon"
+            mdui-tooltip="{content: '消息'}"
+            ><i class="mdui-icon material-icons">notifications_none</i></a
+          >
+          <a
+            href="javascript:;"
+            class="mdui-btn mdui-btn-icon"
+            mdui-tooltip="{content: '发表'}"
+            id="add_two-dialog"
+            ><i class="mdui-icon material-icons">add</i></a
+          >
+          <a href="javascript:;" class="mdui-btn mdui-btn-icon"
+            ><img src="img/to_bar_2.jpg" alt=""
+          /></a>
+        </div>
+        <div class="mdui-tab mdui-color-brown-300" mdui-tab id="three_part_btn_fa">
+          <a href="#" class="mdui-ripple mdui-ripple-white three_part_btn"
+            >当前热门</a
+          >
+          <a href="/manage" class="mdui-ripple mdui-ripple-white three_part_btn"
+            id="geren">个人中心</a
+          >
+        </div>
+      </div>
+      <div id="three_part" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide stop-swiping">
+            <div id="part1_l" >
+                <div class="mdui-panel " mdui-panel>
+
+                    <div class="mdui-panel-item">
+                        <div class="mdui-panel-item-header">
+                            如何看待AAA
+                            <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                        </div>
+                        <div class="mdui-panel-item-body">
+                            <div>
+                                <div class="mdui-float-left oook">我觉得不好</div><div class="mdui-float-right nooo">我觉得很好</div>
+                                <br/>
+                                <label class="mdui-slider mdui-slider-discrete">
+                                    <input type="range" step="1" min="0" max="100" value="20" disabled/>
+                                </label>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--  -->
+<div class="mdui-panel" th:each = "page:${page}" mdui-panel>
+
+    <div class="mdui-panel-item article" >
+        <div class="mdui-panel-item-header article" th:id="${page.id}">
+            <div class="mdui-panel-item-title" th:text="${page.title}">有山谷漂流地推荐吗</div>
+            <div class="mdui-panel-item-summary" th:text="${page.easyCreateTime}">2019/7/22</div>
+            访问量:<div class="mdui-panel-item-summary" th:text="${page.viewSize}">最后回复:飞翔的企鹅</div>
+            <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-panel-item-body">
+          <p class="content" th:data-article-id="${page.id}" th:text="${page.content}"></p>
+          <div class="mdui-panel-item-actions">
+            <button class="mdui-btn mdui-ripple addzan"  th:data-article-id="${page.id}"><i class="mdui-icon material-icons icon-ac" >thumb_up</i></button>
+            <button class="mdui-btn mdui-ripple star"  th:data-article-id="${page.id}"><i class="mdui-icon material-icons">star</i></button>
+            <button class="mdui-btn mdui-ripple"><i class="mdui-icon material-icons">near_me</i></button>
+          </div>
+          <div class="mdui-panel comment" mdui-panel>
+            <div class="mdui-panel-item">
+              <div class="mdui-panel-item-header">评论区</div>
+              <div class="mdui-panel-item-body">
+                <div class="mdui-comments">
+                  <!--<img src="img/to_bar_2.jpg" class="mdui-comments-head" alt="">-->
+                  <!--<span class="mdui-comments-name">空洞</span>-->
+                  <!--<span class='mdui-float-right mdui-comments-time'>3小时前</span>-->
+                  <!--<p class="mdui-comments-body">推荐余姚四明山的漂流，起码挺凉快的。</p>-->
+                  <!--<p class="mdui-comments-bottom"><i class="mdui-icon material-icons icon-ac">thumb_up</i></p>-->
+                  <!--<div class="mdui-typo">-->
+                  <!--<hr/>-->
+                <!--</div>-->
+                </div>
+
+                
+                  <div class="mdui-textfield mdui-textfield-floating-label">
+                    <label class="mdui-textfield-label">写下你的评论</label>
+                    <button class="mdui-btn mdui-ripple mdui-btn-put mdui-color-pink-accent pinglun comments" th:data-article-id="${page.id}">发布</button>
+                    <input class="mdui-textfield-input comment_neirong" type="email" />
+                  </div>
+    
+    
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+</div>
+
+            </div>
+        <!--  -->
+            <div id="part1_r">
+                <div class="part1_r_1 mdui-shadow-1 mdui-hoverable">
+                    <div class="part1_r_title">精选文章</div>
+                    <div class="mdui-typo">
+                        <hr/>
+                    </div>
+                    <div>
+                        <ul class="mdui-list" th:each="hotArticleList:${hotArticleList}">
+                            <li class="mdui-list-item" th:text = "${hotArticleList.title}">X大开设阳明心学公开课，为何阳明心学如此受用？</li>
+                      </ul>
+                    </div>
+                </div>
+<!--  -->
+                <div class="part1_r_2 mdui-shadow-1 mdui-hoverable">
+                    <div class="part1_r_title">等待回答</div>
+                    <div class="mdui-typo">
+                        <hr/>
+                    </div>
+                    <div>
+                      <ul class="mdui-list">
+                        <li class="mdui-list-item">现在陆埠哪家豆酥糖最正宗啊。</li>
+                        <li class="mdui-list-item">杨梅季节在什么时候？？</li>
+                        <li class="mdui-list-item">乌镇真的像图片中那样傍水而居吗？</li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="swiper-slide stop-swiping">
+            <div id="fengmian">我是封面我是封面我是封面我是封面</div>
+            <div id="geren_body">
+              <div class="my_head">
+                <img src="img/to_bar_2.jpg" alt="">
+              </div>
+              <div class="my_name">猫尾草</div>
+              <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent mdui-float-right">编辑个人资料</button>
+              <div id="geren_tab" class="mdui-hoverable mdui-shadow-2">
+                <span>个人中心</span>
+                <li class="mdui-divider"></li>
+                <ul class="mdui-list">
+                  <li class="mdui-list-item mdui-ripple colorful">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">chat</i>
+                    <div class="mdui-list-item-content">我的发帖</div>
+                  </li>
+                  <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">send</i>
+                    <div class="mdui-list-item-content">我的回复</div>
+                  </li>
+                  <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">star</i>
+                    <div class="mdui-list-item-content">我的收藏</div>
+                  </li>
+                  <li class="mdui-divider"></li>
+                  <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">face</i>
+                    <div class="mdui-list-item-content">我的粉丝</div>
+                  </li>
+                  <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">favorite</i>
+                    <div class="mdui-list-item-content">我的关注</div>
+                  </li>
+                  <li class="mdui-divider"></li>
+                  <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
+                    <div class="mdui-list-item-content">编辑资料</div>
+                  </li>
+                  <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">help</i>
+                    <div class="mdui-list-item-content">隐私设置</div>
+                  </li>
+                </ul>
+              </div>
+              <div id="geren_tab_to" class="mdui-hoverable mdui-shadow-2">
+                <div id="to_fatie" class="to_where to_appear">
+                  <span>我的发帖</span>
+                  <li class="mdui-divider"></li>
+                  <div class="fatie_item">
+                    <p class="fatie_item_time"><i class="mdui-icon material-icons">access_time</i> 3小时前</p>
+                    <p class="fatie_item_title">关于阳明心学的一些见解</p>
+                    <p class="fatie_item_more">
+                      <i class="mdui-icon material-icons">remove_red_eye</i> 15
+                      <i class="mdui-icon material-icons">mode_comment</i>  4
+                      <i class="mdui-icon material-icons icon-ac">thumb_up</i>  10
+                    </p>
+                      <li class="mdui-divider"></li>
+                  </div>
+                </div>
+                <div id="to_huifu" class="to_where">
+                  <span>我的回复</span>
+                  <li class="mdui-divider"></li>
+                  <div class="huifu_item">
+                      <p class="huifu_item_time"><i class="mdui-icon material-icons">access_time</i> 3小时前</p>
+                      <p class="huifu_item_title">不错</p>
+                      <div class="huifu_item_yinyong">
+                        <a href="#" >被引用id</a>
+                        <p >关于即将举办的乡土文化征文大赛</p>
+                      </div>
+                      <li class="mdui-divider"></li>
+                  </div>
+                </div>
+                <div id="to_shoucang" class="to_where">
+                  <span>我的收藏</span>
+                  <li class="mdui-divider"></li>
+                  <div class="fatie_item">
+                      <p class="fatie_item_time"><i class="mdui-icon material-icons">access_time</i> 15小时前</p>
+                      <p class="fatie_item_title">保国寺</p>
+                      <p class="fatie_item_more">
+                        <i class="mdui-icon material-icons">remove_red_eye</i> 15
+                        <i class="mdui-icon material-icons">mode_comment</i>  4
+                        <i class="mdui-icon material-icons icon-ac">thumb_up</i>  10
+                      </p>
+                        <li class="mdui-divider"></li>
+                    </div>
+                </div>
+                <div id="to_fensi" class="to_where">
+                  <span>粉丝列表</span>
+                  <li class="mdui-divider"></li>
+                  <ul class="mdui-list">
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                    </ul>
+                </div>
+                <div id="to_guanzhu" class="to_where">
+                  <span>关注列表</span>
+                  <li class="mdui-divider"></li>
+                  <ul class="mdui-list">
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">飞翔的企鹅</div>
+                        <div class="mdui-list-item-avatar"><img src="img/to_bar_2.jpg"/></div>
+                      </li>
+                    </ul>
+                </div>
+                <div id="to_bianji" class="to_where">
+                  <span>编辑资料</span>
+                  <li class="mdui-divider"></li>
+                  <div class="bianji_head">
+                    <div class="bianji_myhead">
+                      <img src="img/to_bar_2.jpg" alt="">
+                    </div>
+                    <div class="bianji_more">
+                      <span class="bianji_more_l">昵称</span>
+                      <div class="mdui-textfield bianji_more_r">
+                        <input class="mdui-textfield-input" type="text" value="11"/>
+                      </div>
+                    </div>
+                    <div class="bianji_more">
+                      <span class="bianji_more_l">性别</span>
+                      <span class="bianji_more_r">
+                          <form>
+                              <label class="mdui-radio mdui-m-l-1">
+                                <input type="radio" name="group1"/>
+                                <i class="mdui-radio-icon"></i>
+                                男
+                              </label>
+                              <label class="mdui-radio mdui-m-l-1">
+                                <input type="radio" name="group1" />
+                                <i class="mdui-radio-icon"></i>
+                                女
+                              </label>
+                              <label class="mdui-radio mdui-m-l-1">
+                                  <input type="radio" name="group1" checked/>
+                                  <i class="mdui-radio-icon"></i>
+                                  保密
+                              </label>
+                          </form>
+                      </span>
+                    </div>
+                    <div class="bianji_more">
+                      <span class="bianji_more_l">个性签名</span>
+                      <div class="mdui-textfield bianji_more_r">
+                          <input class="mdui-textfield-input" type="text" maxlength="20"/>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent mdui-m-t-2">保存</button>
+                </div>
+                <div id="to_yinsi" class="to_where">
+                  <span>隐私设置</span>
+                  <li class="mdui-divider"></li>
+                  <ul class="mdui-list">
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">隐藏个人中心</div>
+                        <label class="mdui-switch mdui-float-right">
+                            <input type="checkbox"/>
+                            <i class="mdui-switch-icon"></i>
+                        </label>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">隐藏关注列表</div>
+                        <label class="mdui-switch mdui-float-right">
+                            <input type="checkbox"/>
+                            <i class="mdui-switch-icon"></i>
+                        </label>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">谁能查看发帖、回复、收藏</div>
+                        <form class="mdui-float-right">
+                            <label class="mdui-radio" style="margin-right:15px">
+                              <input type="radio" name="group1"/>
+                              <i class="mdui-radio-icon"></i>
+                              我的关注
+                            </label>
+                            <label class="mdui-radio">
+                              <input type="radio" name="group1" checked/>
+                              <i class="mdui-radio-icon"></i>
+                              所有人
+                            </label>
+                          </form>
+                      </li>
+                      <li class="mdui-list-item mdui-ripple">
+                          <div class="mdui-list-item-content">评论权限</div>
+                          <form class="mdui-float-right">
+                              <label class="mdui-radio" style="margin-right:15px">
+                                <input type="radio" name="group1"/>
+                                <i class="mdui-radio-icon"></i>
+                                我的关注
+                              </label>
+                              <label class="mdui-radio">
+                                <input type="radio" name="group1" checked/>
+                                <i class="mdui-radio-icon"></i>
+                                所有人
+                              </label>
+                            </form>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 弹出的发表文章dialog -->
+    <div id="wenzhang_dialog" class="mdui-dialog">
+      <div id="article_upload"></div>
+      <button
+        class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent mdui-float-right"
+        id="article_upload_btn"
+      >
+        发布文章
+      </button>
+    </div>
+    <!-- 弹出发表帖子dialog -->
+    <div id="tiezi_dialog" class="mdui-dialog">
+      <div class="mdui-dialog-container">
+        <div class="swiper-container" id="tiezi_swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <!-- slide1 -->
+              <div class="mdui-container-fluid">
+                <div class="mdui-textfield">
+                  <label class="mdui-textfield-label">赛事标题</label>
+                  <input
+                    class="mdui-textfield-input"
+                  ></input>
+                </div>
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">内容简介</label>
+                  <textarea
+                    class="mdui-textfield-input"
+                    rows="7"
+                  ></textarea>
+                </div>
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">奖励设置</label>
+                  <textarea
+                    class="mdui-textfield-input"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="mdui-container-fluid">
+                    <div class="mdui-textfield">
+                      <label class="mdui-textfield-label">热点问题</label>
+                      <input
+                        class="mdui-textfield-input"
+                      ></input>
+                    </div>  
+                    <div class='mdui-col-xs-6'>
+                        <div class="mdui-textfield">
+                            <label class="mdui-textfield-label">正方观点</label>
+                          <textarea
+                            class="mdui-textfield-input"
+                            rows="7"
+                          ></textarea>
+                        </div>
+                    </div>
+                    <div class='mdui-col-xs-6'>
+                        <div class="mdui-textfield">
+                            <label class="mdui-textfield-label">反方观点</label>
+                          <textarea
+                            class="mdui-textfield-input"
+                            rows="7"
+                          ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div id="slide_2_wang"></div>
+            </div>
+            <div class="swiper-slide">
+                <div id="slide_3_wang"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent mdui-float-left"
+        id="tiezi_upload_btn_f"
+        mdui-menu="{target: '#choose_type'}"
+      >
+        选择主题
+      </button>
+      <button
+        class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent mdui-float-right"
+        id="tiezi_upload_btn"
+      >
+        发表帖子
+      </button>
+      <ul class="mdui-menu mdui-menu-cascade" id="choose_type">
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            主题赛事
+          </a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            热点投票
+          </a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            日常动态
+          </a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            提问
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="taren_dialog" class="mdui-dialog">
+            <div id="fengmian_ta">我是封面我是封面我是封面我是封面</div>
+            <div id="ta_body">
+              <div class="ta_head">
+                <img src="img/to_bar_2.jpg" alt="">
+              </div>
+              <div class="ta_name">admin</div>
+              <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent mdui-float-right guanzhu">关注</button>
+              <div class="ta_zhuye">
+                  <div class="fatie_item">
+                      <p class="fatie_item_time"><i class="mdui-icon material-icons">access_time</i> 15小时前</p>
+                      <p class="fatie_item_title">保国寺</p>
+                      <p class="fatie_item_more">
+                        <i class="mdui-icon material-icons">remove_red_eye</i> 15
+                        <i class="mdui-icon material-icons">mode_comment</i>  4
+                        <i class="mdui-icon material-icons icon-ac">thumb_up</i>  10
+                      </p>
+                        <div class="mdui-divider"></div>
+                  </div>
+                  <div class="fatie_item">
+                      <p class="fatie_item_time"><i class="mdui-icon material-icons">access_time</i> 15小时前</p>
+                      <p class="fatie_item_title">四明山</p>
+                      <p class="fatie_item_more">
+                        <i class="mdui-icon material-icons">remove_red_eye</i> 15
+                        <i class="mdui-icon material-icons">mode_comment</i>  4
+                        <i class="mdui-icon material-icons icon-ac">thumb_up</i>  10
+                      </p>
+                      <div class="mdui-divider"></div>
+                  </div>
+              </div>
+             
+            </div>
+         
+    </div>
+    <script type="text/javascript" src="js/wangEditor.min.js"></script>
+    <script>
+      var $$ = mdui.JQ;
+      //保持fixed的顶部导航栏宽度正常 放html里防止因加载顺序出现0.1s的导航栏占全屏状况
+      var inW = $$(".talkbody").width();
+      $$(".talkbar_thin").width(inW);
+      window.onresize = function() {
+        inW = $$(".talkbody").width();
+        $$(".talkbar_thin").width(inW);
+      };
+    </script>
+  </body>
+</html>

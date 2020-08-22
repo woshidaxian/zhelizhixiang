@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>后台管理_社区来稿</title>
+	<link rel="Shortcut Icon" href="admin/img/logo.ico">
+	<link rel="stylesheet" type="text/css" href="admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="admin/css/bootstrap-table.min.css">
+	<link rel="stylesheet" href="admin/css/animate.css">
+	<link rel="stylesheet" href="admin/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="admin/css/main.css">
+	<link rel="stylesheet" type="text/css" href="admin/css/initiatingActivities.css">
+	<script type="text/javascript" src="admin/js/jquery-3.3.1.min.js"></script>
+	<script src="admin/js/bootstrap-table.min.js"></script>
+	<script src="admin/js/bootstrap-table-zh-CN.min.js"></script>
+	<script src="admin/js/animate.js"></script>
+	<script type="text/javascript" src="admin/js/main.js"></script>
+	<script type="text/javascript" src="admin/js/initiatingActivities.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-2" style="height: 60px"></div>
+			<div class="col-xs-2" id="web-top-2">
+				<span class="word-backstage">后台管理系统</span>
+				<span class="word-yun">云校园</span>
+			</div>
+			<div class="col-xs-10" style="height: 60px"></div>
+			<div class="col-xs-10" id="web-top-10">
+				<span class="glyphicon glyphicon-refresh reload"></span>
+				<input type="text" class="inp-search" placeholder="Search">
+				<div class="top-info">
+					<span class="info-account">Wei</span>
+					<img src="admin/img/wei.jpg" alt="" class="info-head">
+					<span class="info-config" title="安全退出"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2" style="height: 100%;"></div>
+			<div class="col-xs-2" id="web-nav">
+				<div class="web-img"></div>
+				<ul class="ul-nav-one">
+					<li class="li-one" id="btn-statistics">
+						<div class="nav-icon-div">
+							<span class="fa fa-bar-chart nav-icon"></span>
+						</div>
+						<a>网站统计</a>
+					</li>
+					<li class="li-one">
+						<div id="news">
+							<div class="nav-icon-div">
+								<span class="fa fa-newspaper-o nav-icon"></span>
+							</div>
+							<a>交流社区</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-newsRelease">
+								<div class="nav-icon-div">
+									<span class="fa fa-pencil-square-o nav-icon"></span>
+								</div>
+								<a>社区热门</a>
+							</li>
+							<li id="btn-newsStatistics">
+								<div class="nav-icon-div">
+									<span class="glyphicon glyphicon-list-alt nav-icon"></span>
+								</div>
+								<a>社区推荐</a>
+							</li>
+							<li id="btn-notice">
+								<div class="nav-icon-div">
+									<span class="fa fa-podcast nav-icon"></span>
+								</div>
+								<a>社区来稿</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="active">
+							<div class="nav-icon-div">
+								<span class="fa fa-user-circle nav-icon"></span>
+							</div>
+							<a>管理员</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-alreadyOnline">
+								<div class="nav-icon-div">
+									<span class="fa fa-users nav-icon"></span>
+								</div>
+								<a>管理员管理</a>
+							</li>
+							<li id="btn-toBeAudited">
+								<div class="nav-icon-div">
+									<span class="fa fa-user-plus nav-icon"></span>
+								</div>
+								<a>添加新管理</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="shiwu">
+							<div class="nav-icon-div">
+								<span class="fa fa-paper-plane nav-icon"></span>
+							</div>
+							<a>网站文稿</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-published">
+								<div class="nav-icon-div">
+									<span class="fa fa-puzzle-piece nav-icon"></span>
+								</div>
+								<a>文稿统计</a>
+							</li>
+							<li id="btn-toBeAudited-lost">
+								<div class="nav-icon-div">
+									<span class="fa fa-pencil nav-icon"></span>
+								</div>
+								<a>新建文稿</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one" id="btn-user">
+						<div class="nav-icon-div">
+							<span class="fa fa-user nav-icon"></span>
+						</div>
+						<a>用户管理</a>
+					</li>
+					<li class="li-one" id="btn-mess">
+						<div class="nav-icon-div">
+							<span class="fa fa-comments nav-icon"></span>
+						</div>
+						<a>网站留言</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-10" id="web-center">
+				<div class="row">
+					<div class="col-md-12" id="center-top-1">
+						<span class="glyphicon glyphicon-home" id="icon-home"></span>
+						<a href="home" class="top-1-style">
+							HOME
+						</a>
+						<span class="shuangxiegang">//</span>
+						<a href="communication" class="top-1-style active">
+							交流社区
+						</a>
+					</div>
+					<div class="col-md-12" id="center-top-2">
+						<a href="communication" class="top-1-style">
+							交流社区
+						</a>
+						<span class="fa fa-angle-right jiantou"></span>
+						<a href="communication" class="top-1-style top-2-style">社区热门</a>
+						<a href="communityRecommend" class="top-1-style top-2-style">社区推荐</a>
+						<a href="initiatingActivities" class="top-1-style top-2-style active-1">社区来稿</a>
+					</div>
+					<div class="col-md-12" id="center-box">
+						<div class="box-box">
+							<table id="table"></table>
+							<span>*通过的来稿会显示在网站文稿下的文稿统计中</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mask">
+		<div class="popup">
+			<div class="popup-top">
+				信息
+				<span class="fa fa-close closepopup"></span>
+			</div>
+			<div class="popup-bottom">
+				<span class="span-text">真的删除么</span>
+				<input type="button" value="确定" class="btn btn-primary btn-sure">
+				<input type="button" value="取消" class="btn btn-default btn-cancel">
+			</div>
+		</div>
+	</div>
+	<div class="con-otherbox">
+		<div class="otherbox">
+			<div class="otherboxtop clearfix">
+				<div class="closediv">
+					<span class="fa fa-close" style="font-size: 30px"></span>
+				</div>
+			</div>
+			<div class="otherboxcenter clearfix"></div>
+		</div>
+	</div>
+</body>
+</html>

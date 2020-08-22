@@ -1,0 +1,135 @@
+body{
+    width: 1920px;
+    height: 1024px;
+    background: url(../img/1.jpg) no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.container{
+    width: 500px;
+    height: 460px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: rgba(255, 255, 255, 0);
+    /* display: none; */
+    border-radius: 10px;
+}
+.container-center{
+    width: 490px;
+    height: 450px;
+    margin-top: 4px;
+    margin-left: 4px;
+    text-align: center;
+}
+h2{
+    padding-top: 50px;
+    color: #fff;
+}
+.inp-account,.inp-password{
+    width: 320px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    text-indent: 50px;
+    margin-top: 40px;
+    position: relative;
+    left: -16px;
+    font-size: 15px;
+}
+input::-webkit-input-placeholder{color:#fff;}
+.container-center img{
+    position: relative;
+    top: 10px;
+    left: 28px;
+}
+.btn-up{
+    width: 320px;
+    height: 46px;
+    border: none;
+    outline: none;
+    background: rgb(255, 158, 31);
+    border-radius: 24px;
+    margin-top: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+}
+.btn-up:hover{
+    background: #fa7e0b;
+}
+.city-div{
+    width: 140px;
+    height: 40px;
+    position: absolute;
+    top: 2%;
+    font-size: 14px;
+    left: 1%;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+.city-div:hover{
+    cursor: pointer;
+    background: rgba(100, 100, 100, 0.5);
+}
+.haveCity-blank{
+    position: absolute;
+    top: 6%;
+    left: 5%;
+    display: none;
+}
+.haveCity-blank img{
+    width: 20px;
+    height: 20px;
+    margin-left: 9%;
+}
+.blank-bottom{
+    background: #fff;
+    position: relative;
+    top: -10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+.blank-ul{
+    padding: 12px 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+}
+.blank-li{
+    padding: 1px 8px;
+    float: left;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.blank-li-active{
+    color: #ff9e1f;
+}
+.blank-li:hover{
+    color: #ff9e1f;
+}
+
+.messBox{
+    width: 200px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: none;
+}

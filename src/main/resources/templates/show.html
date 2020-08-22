@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" href="css/show.css" />
+    <link rel="stylesheet" href="css/mdui.min.css" />
+    <link rel="Shortcut Icon" href="admin/img/logo.ico">
+    <title>知乡</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mdui.min.js"></script>
+    <script src="js/gsap/TweenMax.min.js"></script>
+  </head>
+  <body>
+    <div class="mdui-dialog" id="place_dialog">
+      <div class="mdui-dialog-title">切换地级市?</div>
+      <div class="mdui-dialog-content">
+        <ul class="mdui-list">
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">杭州市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">宁波市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">温州市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">嘉兴市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">湖州市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">绍兴市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">金华市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">衢州市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">舟山市</div>
+          </li>
+          <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">台州市</div>
+          </li>
+        </ul>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple" mdui-dialog-close>返回</button>
+      </div>
+    </div>
+    <div class="mdui-fab-wrapper" id="fab">
+      <button class="mdui-fab mdui-ripple mdui-color-pink-accent">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">touch_app</i>
+      </button>
+      <div class="mdui-fab-dial">
+        <button
+          class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink"
+          mdui-tooltip="{content: '返回', position: 'left'}"
+        >
+          <i class="mdui-icon material-icons">reply</i>
+        </button>
+        <button
+          class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-red"
+          mdui-tooltip="{content: '评论', position: 'left'}"
+          mdui-dialog="{target: '#comment_dialog'}"
+        >
+          <i class="mdui-icon material-icons">bookmark</i>
+        </button>
+        <button
+          class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-orange"
+          mdui-tooltip="{content: '选择', position: 'left'}"
+        >
+          <i class="mdui-icon material-icons">apps</i>
+        </button>
+        <button
+          class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-green"
+          mdui-tooltip="{content: '地区', position: 'left'}"
+          mdui-dialog="{target: '#place_dialog'}"
+        >
+          <i class="mdui-icon material-icons">room</i>
+        </button>
+        <button
+          class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue"
+          mdui-dialog="{target: '#login_dialog'}"
+          mdui-tooltip="{content: '个人', position: 'left'}"
+        >
+          <i class="mdui-icon material-icons">account_circle</i>
+        </button>
+      </div>
+    </div>
+    <div class="mdui-dialog" id="login_dialog">
+      <div class="mdui-shadow-10" id="sign_in_body">
+        <!--大块白色-->
+        <div class="mdui-container">
+          <div class="mdui-tab mdui-tab-centered" mdui-tab>
+            <a href="#example3-tab1" class="mdui-ripple " id="sign_in_a1"
+              >登录</a
+            >
+            <a href="#example3-tab2" class="mdui-ripple" id="sign_in_a2"
+              >注册</a
+            >
+          </div>
+        </div>
+        <!-- 上tab   下div1 -->
+        <form id="loginForm" novalidate="novalidate">
+        <div class="mdui-container" id="sign_in_dl">
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">User name</label>
+            <input class="mdui-textfield-input" type="text" id="l_username" name="l_username" required />
+            <div class="mdui-textfield-error">用户名不能为空</div>
+          </div>
+
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">Password</label>
+            <input
+              class="mdui-textfield-input"
+              type="password"
+              id="l_password"
+              name="l_password"
+              pattern="^.*(?=.{6,})(?=.*[a-z]).*$"
+              required
+            />
+            <div class="mdui-textfield-error">
+              密码至少 6 位，且包含字母
+            </div>
+            <div class="mdui-textfield-helper">
+              请输入至少 6 位，且包含字母的密码
+            </div>
+          </div>
+          <!-- 登录按钮 -->
+          <div class="mdui-col-xs-12">
+            <button
+              class="mdui-btn mdui-btn-raised mdui-ripple mdui-center mdui-color-blue"
+              id="login_btn_dl"
+              mdui-dialog-confirm
+            >
+              登录
+            </button>
+          </div>
+        </div>
+        </form>
+        <!-- 上div1  下div2 -->
+        <form id="registerForm" novalidate="novalidate">
+        <div class="mdui-container mdui-hidden" id="sign_in_zc">
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">User name</label>
+            <input class="mdui-textfield-input" type="text" name="username" id="username" required />
+            <div class="mdui-textfield-error">用户名不能为空</div>
+            <div class="mdui-textfield-helper">
+              请创建一个用户名
+            </div>
+          </div>
+
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">Password</label>
+            <input
+              class="mdui-textfield-input"
+              type="password"
+              id="password"
+              name="password"
+              pattern="^.*(?=.{6,})(?=.*[a-z]).*$"
+              required
+            />
+            <div class="mdui-textfield-error">
+              密码至少 6 位，且包含字母
+            </div>
+            <div class="mdui-textfield-helper">
+              请输入至少 6 位，且包含字母的密码
+            </div>
+          </div>
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">Confirm</label>
+            <input
+              class="mdui-textfield-input"
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              pattern="^.*(?=.{6,})(?=.*[a-z]).*$"
+              required
+            />
+            <div class="mdui-textfield-error">
+              两次密码不相符
+            </div>
+            <div class="mdui-textfield-helper">
+              请确认密码
+            </div>
+          </div>
+          <!-- 登录按钮 -->
+          <div class="mdui-col-xs-12">
+            <button
+              class="mdui-btn mdui-btn-raised mdui-ripple mdui-center mdui-color-blue"
+              id="login_btn_zc"
+            >
+              注册
+            </button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    <div class="mdui-dialog" id="comment_dialog">
+      <div class="comment_dialog">
+        <div class="comment_dialog_t">
+          <div class="mdui-comments">
+            <img src="img/to_bar_2.jpg" class="mdui-comments-head" alt="" />
+            <span class="mdui-comments-name">空洞</span>
+            <span class="mdui-float-right mdui-comments-time">3小时前</span>
+            <p class="mdui-comments-body">
+              推荐余姚四明山的漂流，起码挺凉快的。
+            </p>
+            <p class="mdui-comments-bottom">
+              <i class="mdui-icon material-icons">thumb_up</i>
+            </p>
+            <div class="mdui-typo">
+              <hr />
+            </div>
+          </div>
+          <div class="mdui-comments">
+            <img src="img/to_bar_2.jpg" class="mdui-comments-head" alt="" />
+            <span class="mdui-comments-name">空洞</span>
+            <span class="mdui-float-right mdui-comments-time">3小时前</span>
+            <p class="mdui-comments-body">
+              推荐余姚四明山的漂流，起码挺凉快的。
+            </p>
+            <p class="mdui-comments-bottom">
+              <i class="mdui-icon material-icons">thumb_up</i>
+            </p>
+            <div class="mdui-typo">
+              <hr />
+            </div>
+          </div>
+          <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">写下你的评论</label>
+            <button
+              class="mdui-btn mdui-ripple mdui-btn-put mdui-color-pink-accent mdui-float-right fabu"
+            >
+              发布
+            </button>
+            <input class="mdui-textfield-input" id="inpinp"/>
+          </div>
+        </div>
+        <div class="mdui-typo">
+          <hr />
+        </div>
+        <div class="comment_dialog_b mdui-valign">
+          <span>加入收藏，随时查看！</span>
+          <span class="mdui-btn mdui-color-pink-accent">
+            收藏
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="flow" id="flow1">
+      <div class="flow_inner">
+        <img src="img/bigwave_yellow.png" alt="" />
+        <div class="flow_box"></div>
+      </div>
+    </div>
+    <div class="flow" id="flow2">
+      <div class="flow_inner">
+        <img src="img/bigwave_blue.png" alt="" />
+        <div class="flow_box"></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="navigation-circle">
+        <div class="navigation-circle__inner">
+          <svg
+            class="navigation-circle-svg navigation-circle-svg--opaque"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            viewbox="0 0 600 600"
+            style="enable-background:new 0 0 600 600;"
+          >
+            <circle
+              cx="300"
+              cy="300"
+              r="298"
+              fill="none"
+              stroke-width="1"
+              stroke="#c644fc"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              style="stroke-dashoffset:0;stroke-dasharray:none;"
+            ></circle>
+          </svg>
+          <svg
+            class="navigation-circle-svg navigation-circle-svg--mask"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            viewbox="0 0 600 600"
+            style="enable-background:new 0 0 600 600;"
+          >
+            <circle
+              id="mask-circle"
+              cx="300"
+              cy="300"
+              r="298"
+              fill="none"
+              stroke-width="2"
+              stroke="#c644fc"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              style="stroke-dasharray:1884.95px;"
+            ></circle>
+          </svg>
+          <div id="textContainer"></div>
+          <ul class="navigation-circle__list">
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(1)"
+                onmouseenter="calculateOffset(1)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    阿育王寺
+                  </h4>
+                </div>
+              </a>
+            </li>
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(2)"
+                onmouseenter="calculateOffset(2)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    四明山
+                  </h4>
+                </div></a
+              >
+            </li>
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(3)"
+                onmouseenter="calculateOffset(3)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    河姆渡遗址
+                  </h4>
+                </div></a
+              >
+            </li>
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(4)"
+                onmouseenter="calculateOffset(4)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    梁祝古迹遗址
+                  </h4>
+                </div></a
+              >
+            </li>
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(5)"
+                onmouseenter="calculateOffset(5)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    上林湖青瓷窑址
+                  </h4>
+                </div></a
+              >
+            </li>
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(6)"
+                onmouseenter="calculateOffset(6)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    保国寺
+                  </h4>
+                </div></a
+              >
+            </li>
+            <li class="navigation-circle-list-item">
+              <a
+                class="navigation-circle-list-item__point"
+                onClick="onClick(7)"
+                onmouseenter="calculateOffset(7)"
+                onMouseLeave="onMouseLeave()"
+              >
+                <div class="navigation-circle-list-item__meta">
+                  <h3 class="navigation-circle-list-item__title">地方古迹</h3>
+                  <h4 class="navigation-circle-list-item__subtitle">
+                    天童禅寺
+                  </h4>
+                </div></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="show">
+      <div class="show_nr">
+        <img src="img/tu1.png" alt="" class="tu1" />
+        <img src="img/tu2.png" alt="" class="tu2" />
+        <img src="img/tu3.png" alt="" class="tu3" />
+        <div class="mdui-typo">
+          <h1>阿育王寺</h1>
+          <h4>
+            浙江省文物保护单位。位于宁波城东20公里处鄞县五乡镇宝幢阿育王山西麓。西晋太康三年(282)始建。相传阿育王寺的开山祖师慧达为求贮有释迦牟尼真身舍利的宝塔，行至会稽之山，在今古育王地祀祷，忽闻地下有钟磬之声，有舍利宝塔自地下涌出，遂建庐守护。因原址狭隘，后又另择宝地即今址建造殿宇。南朝梁武帝普通三年(522)赐额"阿育王寺"，而其坐山也以阿育王名。历1700多年来，几经兴衰，现存寺院由山门、钟楼、天王殿、大殿、舍利殿、法堂及僧房、斋堂、偏殿等以及元代的东西二塔、新建的仿楼阁式塔等建筑组成，占地12.44万平方米，建筑面积2.3万平方米。阿育王寺不但风光秀丽，殿宇巍峨，在中国佛教史上也占有重要地位，南宋理宗时将其列为"天下五山之第二"，明洪武十五年(1382)诏定为"天下禅宗五山第五"。宋高宗、宋孝宗、清乾隆帝等曾御书匾额，唐代高僧鉴真在东渡日本时曾卓锡在此。另外，寺内还藏有许多文物，有唐代书法家范的所书"大唐阿育王寺常住田碑"，宋代张九成撰写的"妙喜泉铭"碑，唐贯休十六尊者像石刻以及"钦锡龙藏"经等。寺附近有"佛迹亭"、"极目亭"、"仙人岩"、"月现岩"、"七佛潭"等胜景。
+          </h4>
+        </div>
+      </div>
+    </div>
+    <script src="js/show.js"></script>
+  </body>
+</html>

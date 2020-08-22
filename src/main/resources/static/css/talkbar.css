@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  _background-image: url(about:blank);
+  _background-attachment: fixed;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+body {
+  height: 100%;
+  width: 100%;
+  min-width: 1024px;
+  position: relative;
+  background: #f0f1f5 !important;
+}
+.talkbody {
+  /* width: 70%; */
+  width: 1024px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+.talkbar_thin {
+  margin: 0 auto;
+}
+.talkbar_thin input {
+  color: #fff;
+}
+.talkbar_thin a img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+.talkbar_thin .mdui-tab a {
+  font-size: 17px;
+}
+/* ---------------------------------------------弹出的发表文章和发表帖子dialog--------------------------------------------- */
+#wenzhang_dialog,
+#tiezi_dialog {
+  height: 80%;
+  width: 540px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+#tiezi_dialog {
+  height: 65%;
+}
+#wenzhang_dialog .mdui-btn,
+#tiezi_dialog .mdui-btn {
+  margin-top: 20px;
+}
+/* 富文本编辑器css */
+#article_upload > div:last-child {
+  min-height: 620px !important;
+}
+#article_upload img,
+#tiezi_upload img {
+  max-width: 50% !important;
+}
+/* swiper */
+#tiezi_swiper {
+  max-height: 620px;
+  width: 100%;
+  margin: 0 auto;
+}
+/* ---------------------------------------------下面的主体部分--------------------------------------------- */
+#three_part {
+  width: 100%;
+  min-height: 1000px;
+  margin: 10px auto;
+  color: #000;
+}
+
+/* ---------------------------------------------part1--------------------------------------------- */
+#part1_l {
+  /* background: #fff; */
+  width: 714px;
+  height: 100%;
+  float: left;
+}
+#part1_r {
+  width: 300px;
+  margin-left: 8px;
+  margin-right: 2px;
+  float: right;
+  /* position: fixed;
+  top: 0px;
+  right: 0; */
+}
+/* ---------------------------------------------评论--------------------------------------------- */
+.mdui-comments img {
+  height: 30px;
+  width: 30px;
+}
+.mdui-comments .mdui-comments-name {
+  margin-left: 6px;
+  vertical-align: 9px;
+  font-size: 16px;
+}
+.mdui-comments .mdui-comments-body {
+  padding-left: 36px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.mdui-comments .mdui-comments-time {
+  color: gray;
+}
+.mdui-comments-bottom {
+  padding-left: 36px;
+  margin-top: 8px;
+  color: gray;
+  font-size: 14px !important;
+}
+.mdui-panel-item-body .mdui-btn-put {
+  position: absolute;
+  right: 0;
+  background: #c51162;
+  color: #fff;
+}
+/* ---------------------------------------------右侧推荐--------------------------------------------- */
+.part1_r_1 {
+  background: #fff;
+}
+.part1_r_title {
+  padding: 18px 12px 5px 12px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+#part1_r .mdui-list {
+  padding: 0 !important;
+}
+#part1_r .mdui-list .mdui-list-item {
+  min-height: 35px;
+}
+#part1_r .mdui-list .mdui-list-item:after {
+  height: 52px !important;
+}
+#part1_r .mdui-typo {
+  margin: 0 !important;
+}
+#part1_r .mdui-typo hr {
+  margin-bottom: 0;
+}
+.part1_r_2 {
+  margin-top: 10px;
+  background: #fff;
+}
+/* ---------------------------------------------个人中心--------------------------------------------- */
+#fengmian {
+  height: 180px;
+  background: url(../img/to_bar_2.jpg) no-repeat;
+  background-size: 100%;
+  /* margin-bottom: 20px; */
+}
+#geren_body {
+  position: relative;
+  background: #f0f1f5;
+  padding-top: 120px;
+}
+.my_head {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  background: #fff;
+  top: -60px;
+  left: 30px;
+  border: 5px solid #fff;
+  border-radius: 5px;
+}
+.my_head img {
+  height: 100%;
+  width: 100%;
+}
+.my_name {
+  font-size: 26px;
+  position: absolute;
+  left: 210px;
+  top: 15px;
+  font-weight: 700;
+}
+#geren_body > button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#geren_tab {
+  background: #fff;
+  width: 280px;
+  height: 450px;
+  margin-left: 5px;
+  border-radius: 5px;
+  float: left;
+  padding: 10px;
+}
+#geren_tab_to {
+  background: #fff;
+  width: 714px;
+  min-height: 560px;
+  margin-left: 20px;
+  border-radius: 5px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+#geren_tab span {
+  display: block;
+  line-height: 7px;
+  padding: 20px;
+  font-size: 18px;
+}
+.to_where {
+  min-height: 560px;
+  width: 100%;
+  position: absolute;
+  display: none;
+  padding: 10px;
+}
+.to_appear {
+  display: block;
+}
+#geren_tab .mdui-list-item {
+  border-radius: 5px;
+}
+#geren_tab .mdui-list-item:hover {
+  background: #f06292;
+  color: #fff;
+  transition: all 0.3s;
+}
+#geren_tab .mdui-list-item:hover i {
+  color: #fff;
+  transition: all 0.4s;
+}
+.colorful {
+  background: #ec407a;
+  color: #fff;
+}
+.colorful i {
+  color: #fff;
+}
+.to_where > span {
+  display: block;
+  line-height: 7px;
+  padding: 20px;
+  font-size: 18px;
+}
+.bianji_head {
+  width: 100%;
+  padding-top: 40px;
+}
+.bianji_myhead {
+  margin: 0 auto 40px;
+  background: red;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+}
+.bianji_myhead img {
+  height: 100%;
+  width: 100%;
+}
+.bianji_more {
+  padding-left: 40px;
+  min-height: 60px;
+}
+.bianji_more_l {
+  display: inline-block;
+  width: 60px;
+  text-align: right;
+  margin-right: 30px;
+  float: left;
+}
+.bianji_more_r {
+  float: left;
+  width: 460px;
+}
+.bianji_more_r form {
+  margin-top: -10px;
+}
+.bianji_more .mdui-textfield {
+  padding-top: 0 !important;
+}
+.fatie_item,
+.huifu_item {
+  padding-top: 15px;
+}
+.fatie_item i,
+.huifu_item i {
+  font-size: 16px;
+}
+.fatie_item_time,
+.huifu_item_time {
+  text-indent: 1.2em;
+  color: gray;
+}
+.fatie_item_title,
+.huifu_item_title {
+  text-indent: 2em;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.fatie_item_more {
+  color: gray;
+  text-align: right;
+  margin: 20px 0 10px;
+}
+.fatie_item_more i {
+  font-size: 20px;
+  margin-left: 25px;
+}
+.huifu_item_yinyong {
+  background: #f0f1f5;
+  border-radius: 5px;
+  height: 80px;
+  margin: 10px 33px 20px;
+  padding: 15px;
+}
+.huifu_item_yinyong a {
+  text-decoration: none;
+  color: #ec407a;
+}
+.huifu_item_yinyong p {
+  margin-top: 10px;
+  color: gray;
+  text-indent: 1rem;
+}
+
+/* 其他人主页 */
+#taren_dialog {
+  height: 80%;
+  width: 1024px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+#fengmian_ta {
+  height: 180px;
+  background: url(../img/to_bar_2.jpg) no-repeat;
+  background-size: 100%;
+  /* margin-bottom: 20px; */
+}
+#ta_body {
+  position: relative;
+  background: #fff;
+  padding-top: 120px;
+}
+.ta_head {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  background: #fff;
+  top: -60px;
+  left: 30px;
+  border: 5px solid #fff;
+  border-radius: 5px;
+}
+.ta_head img {
+  height: 100%;
+  width: 100%;
+}
+.ta_name {
+  font-size: 26px;
+  position: absolute;
+  left: 210px;
+  top: 15px;
+  font-weight: 700;
+}
+#ta_body > button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.ta_zhuye {
+
+}
+.mdui-panel-item .mdui-slider-track,
+.mdui-panel-item .mdui-slider-fill {
+  height: 20px !important;
+  padding: 0 !important;
+}
+.mdui-panel-item .mdui-slider-fill::before {
+  background: rgb(125, 125, 230);
+}
+.mdui-panel-item .mdui-slider-track::before {
+  background: rgb(236, 107, 107);
+}
+.mdui-panel-item .mdui-slider-thumb {
+  width: 0;
+  height: 0;
+}
+.oook,
+.nooo {
+  cursor: pointer;
+  font-size: 20px;
+}

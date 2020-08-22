@@ -1,0 +1,27 @@
+.box-box{
+    padding: 70px;
+    background: #fff;
+    min-height: 800px;
+}
+#center-box{
+    padding: 30px;
+    padding-top: 40px;
+}
+.w-e-text-container{
+    min-height: 600px;
+}
+#btn-fabu{
+    margin-top: 20px;
+}
+.select-city,.select-type{
+    width: 100px;
+    margin-left: 10px;
+}
+.other-div-1,.other-div-2{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thmeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+
+    <title>浙里知乡</title>
+    <link rel="Shortcut Icon" href="admin/img/logo.ico">
+    <link rel="stylesheet" href="css/mdui.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="js/gsap/TweenMax.min.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    <div id="bigger"></div>
+    <div id="bigger_rightin">
+      <ul class="bigger_bar">
+        <li class="bigger_bar_item" >先贤文化</li>
+        <li class="bigger_bar_item" >特产民风</li>
+        <li class="bigger_bar_item" >地方古迹</li>
+        <li class="bigger_bar_item" >文化艺术</li>
+        <li class="bigger_bar_item" >知乡社区</li>
+      </ul>
+      <div class="fade_bigger_a map-div">
+        <div id="map_yd">选择一个城市进入详情</div>
+        <div id="zj-map"></div>
+      </div>
+      <div class="bar_to bar_to_2">
+        <div class="mdui-shadow-8">
+          <img src="img/to_bar_2.jpg" alt="" class="to_bar_img" />
+        </div>
+        <div class="mdui-shadow-8 mdui-valign bar_to_n">
+          <div class="bar_to_n_c">
+            <div class="mdui-typo-display-1 mdui-m-b-2">崇先贤</div>
+            <div class="mdui-typo-headline mdui-m-b-2">
+              南朝 梁刘勰《文心雕龙·书记》：“先贤表谥，并有行状，状之大者也。”
+            </div>
+            <div class="mdui-typo-subheading">
+              领袖人物、爱国先贤和科学家的传记，会向我们展现他们成长的足迹、奋斗的历程和光辉的业绩。
+            </div>
+            <div class="bar_to_lm">
+              <span id="more">了解更多</span>
+              <span class="long-arrow-right" id="1"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar_to bar_to_3">
+        <div class="mdui-shadow-8">
+          <img src="img/to_bar_3.jpg" alt="" class="to_bar_img" />
+        </div>
+        <div class="mdui-shadow-8 mdui-valign bar_to_n">
+          <div class="bar_to_n_c">
+            <div class="mdui-typo-display-1 mdui-m-b-2">探民风</div>
+            <div class="mdui-typo-headline mdui-m-b-2">
+              明 高启《吴趋行》：“土物既繁雄，民风亦和平。”
+            </div>
+            <div class="mdui-typo-subheading">
+              所谓“百里不同风，千里不同俗”，每个民族都有自己独特的文化和生活习惯。
+            </div>
+            <div class="bar_to_lm">
+              <span>了解更多</span>
+              <span class="long-arrow-right" id="2"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar_to bar_to_4">
+        <div class="mdui-shadow-8">
+          <img src="img/to_bar_4.jpg" alt="" class="to_bar_img" />
+        </div>
+        <div class="mdui-shadow-8 mdui-valign bar_to_n">
+          <div class="bar_to_n_c">
+            <div class="mdui-typo-display-1 mdui-m-b-2">访古迹</div>
+            <div class="mdui-typo-headline mdui-m-b-2">
+              明徐渭《礼书总论》：“志古迹，以不忘其贤有德者也！”
+            </div>
+            <div class="mdui-typo-subheading">
+              在浩如烟海的名胜古迹之间，领略祖国的大好河山，感悟祖国博大精深的历史文化。
+            </div>
+            <div class="bar_to_lm">
+              <span>了解更多</span>
+              <span class="long-arrow-right" id="3"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar_to bar_to_5">
+        <div class="mdui-shadow-8">
+          <img src="img/to_bar_5.jpg" alt="" class="to_bar_img" />
+        </div>
+        <div class="mdui-shadow-8 mdui-valign bar_to_n">
+          <div class="bar_to_n_c">
+            <div class="mdui-typo-display-1 mdui-m-b-2">品艺术</div>
+            <div class="mdui-typo-headline mdui-m-b-2">
+              李群玉《送陶少府赴选》：“久向三茅穷艺术，仍传五柳旧琴书。”
+            </div>
+            <div class="mdui-typo-subheading">
+              艺术不是十分高雅而不可及的，其实它可以是一首歌、一次展览、一段经历……有艺术的生活就有欢乐，就有美。
+            </div>
+            <div class="bar_to_lm">
+              <span>了解更多</span>
+              <span class="long-arrow-right" id="4"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar_to bar_to_6">
+        <div class="mdui-shadow-8">
+          <div class="mdui-card">
+            <!-- 卡片头部，包含头像、标题、副标题 -->
+            <div class="mdui-card-header">
+              <div class="mdui-card-primary-title mdui-float-left">
+                反馈
+              </div>
+              <!-- <div class="mdui-card-header-title mdui-float-right">Name</div> -->
+              <img
+                class="mdui-card-header-avatar mdui-float-right"
+                src="img/to_bar_2.jpg"
+              />
+            </div>
+            <div class="mdui-divider-dark"></div>
+            <!-- 卡片的内容 -->
+            <div class="mdui-card-content">
+              <div class="mdui-textfield">
+                <label class="mdui-textfield-label">您的称呼</label>
+                <input class="mdui-textfield-input" id="name" type="text" />
+              </div>
+              <div class="mdui-textfield">
+                <label class="mdui-textfield-label">联系方式</label>
+                <input class="mdui-textfield-input" id="contact" type="text" />
+              </div>
+              <div class="mdui-textfield">
+                <label class="mdui-textfield-label">留言内容</label>
+                <textarea
+                        id="content"
+                  class="mdui-textfield-input"
+                  maxlength="180"
+                ></textarea>
+              </div>
+            </div>
+            <!-- 卡片的按钮 -->
+            <div class="mdui-card-actions">
+              <button
+                class="mdui-btn mdui-float-right mdui-ripple"
+                id="article6_ly"
+              >
+                留言
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mdui-shadow-8 mdui-m-t-2">
+            <div class="mdui-card">
+                <!-- 卡片头部，包含头像、标题、副标题 -->
+                <div class="mdui-card-header">
+                  <div class="mdui-card-primary-title mdui-float-left">知乡社区</div>
+                  <!-- <div class="mdui-card-header-title mdui-float-right">Name</div> -->
+                  <img class="mdui-card-header-avatar mdui-float-right" src="img/to_bar_2.jpg" />
+                </div>
+                <div class="mdui-divider"></div>
+                <!-- 卡片的内容 -->
+                <div class="mdui-card-content">
+                  在知乡社区您可以分享关于乡土的记忆，那些不为人知的、逐渐消失的民风民俗，也许会被一代人铭记。</br>
+                  您也可以分享游山玩水的照片和心得，向大家展示家乡的美丽河山。</br>
+                  结伴出行、提问、日常讨论，欢迎来我们的“知乡社区”讨论！
+                </div>
+                <!-- 卡片的按钮 -->
+                <div class="mdui-card-actions">
+                  <button class="mdui-btn mdui-float-right mdui-ripple" id="article6_go">前往讨论</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-container">
+      <!-- hamburger-menu -->
+      <div id="menu-wrapper">
+        <div id="hamburger-menu"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    <div id="banquan">
+      Copyright © 2019 dx
+    </div>
+    <!-- ---------------------------------------------------------------------------------------------- login-->
+    <div
+      id="sign_in_btn"
+      mdui-dialog="{target: '#login_dialog'}"
+      class="mdui-btn"
+    >
+      <i class="mdui-icon material-icons">account_circle</i>
+    </div>
+    <div class="mdui-dialog" id="login_dialog">
+      <div class="mdui-shadow-10" id="sign_in_body">
+        <!--大块白色-->
+        <div class="mdui-container">
+          <div class="mdui-tab mdui-tab-centered" mdui-tab>
+            <a href="#example3-tab1" class="mdui-ripple " id="sign_in_a1"
+              >登录</a
+            >
+            <a href="#example3-tab2" class="mdui-ripple" id="sign_in_a2"
+              >注册</a
+            >
+          </div>
+        </div>
+        <!-- 上tab   下div1 -->
+        <form id="loginFrom" novalidate="novalidate">
+        <div class="mdui-container" id="sign_in_dl">
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">User name</label>
+            <input class="mdui-textfield-input" type="text" name = "username" id="l_username" required />
+            <div class="mdui-textfield-error">用户名不能为空</div>
+          </div>
+
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">Password</label>
+            <input
+              class="mdui-textfield-input"
+              type="password"
+              pattern="^.*(?=.{4,})(?=.*[a-z]).*$"
+              name="password"
+              id="l_password"
+              required
+            />
+            <div class="mdui-textfield-error">
+              密码至少 4 位，且包含字母
+            </div>
+            <div class="mdui-textfield-helper">
+              请输入至少 4 位，且包含字母的密码
+            </div>
+          </div>
+          <!-- 登录按钮 -->
+          <div class="mdui-col-xs-12">
+            <button
+              class="mdui-btn mdui-btn-raised mdui-ripple mdui-center mdui-color-blue"
+              id="login_btn_dl"
+              mdui-dialog-confirm
+            >
+              登录
+            </button>
+          </div>
+        </div>
+        </form>
+        <!-- 上div1  下div2 -->
+        <form id="registerFrom" novalidate="novalidate">
+        <div class="mdui-container mdui-hidden" id="sign_in_zc">
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">User name</label>
+            <input class="mdui-textfield-input" type="text" name = "username" id="username" required />
+            <div class="mdui-textfield-error">用户名不能为空</div>
+            <div class="mdui-textfield-helper">
+              请创建一个用户名
+            </div>
+          </div>
+
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">Password</label>
+            <input
+              class="mdui-textfield-input"
+              type="password"
+              id="password"
+              name = "password"
+              pattern="^.*(?=.{4,})(?=.*[a-z]).*$"
+              required
+            />
+            <div class="mdui-textfield-error">
+              密码至少 4 位，且包含字母
+            </div>
+            <div class="mdui-textfield-helper">
+              请输入至少 4 位，且包含字母的密码
+            </div>
+          </div>
+          <div
+            class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-8 mdui-col-offset-xs-2 ipt"
+          >
+            <label class="mdui-textfield-label">Confirm</label>
+            <input
+              class="mdui-textfield-input"
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              pattern="^.*(?=.{4,})(?=.*[a-z]).*$"
+              required
+            />
+            <div class="mdui-textfield-error">
+              两次密码不相符
+            </div>
+            <div class="mdui-textfield-helper">
+              请确认密码
+            </div>
+          </div>
+          <!-- 登录按钮 -->
+          <div class="mdui-col-xs-12">
+            <button
+              class="mdui-btn mdui-btn-raised mdui-ripple mdui-center mdui-color-blue"
+              id="login_btn_zc"
+            >
+              注册
+            </button>
+          </div>
+        </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- ------------------------------------------------------------------------------- -->
+    <h1 id="title">
+      浙里知乡
+    </h1>
+    <video autoplay loop muted playsinline>
+        <source src="img/vedio2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+    <div class="zhao"></div>
+    <script src="js/mdui.min.js"></script>
+    <script>
+
+    </script>
+  </body>
+</html>

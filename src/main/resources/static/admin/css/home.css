@@ -1,0 +1,182 @@
+.statisticsStyle{
+    margin-top: 40px;
+}
+.statistics-style-div{
+    width: 100%;
+    height: 220px;
+    background: #ff4a43;
+}
+.top-left-style{
+    width: 110px;
+    height: 110px;
+    float: left;
+}
+.top-right-style{
+    width: 110px;
+    height: 110px;
+    float: right;
+    padding: 18px;
+}
+.icon-style{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 70px;
+    font-size: 30px;
+    border:  2px solid #fff;
+}
+.statistics-1-top{
+    width: 100%;
+    height: 110px;
+    background: #ff4a43;
+    overflow: hidden;
+}
+.word-newUser,.word-visitor,.word-auditor,.word-report{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 13px;
+}
+.num-newUser,.num-visitor,.num-auditor,.num-report{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 40px;
+}
+.statistics-1-bottom{
+    width: 100%;
+    height: 110px;
+    background: #fff;
+    border: 1px solid #ff4a43;
+}
+.statistics-2-top{
+    width: 100%;
+    height: 110px;
+    background: #22beef;
+    overflow: hidden;
+}
+.statistics-2-bottom{
+    width: 100%;
+    height: 110px;
+    background: #fff;
+    border: 1px solid #22beef;
+}
+.statistics-3-top{
+    width: 100%;
+    height: 110px;
+    background: #a2d200;
+    overflow: hidden;
+}
+.statistics-3-bottom{
+    width: 100%;
+    height: 110px;
+    background: #fff;
+    border: 1px solid #a2d200;
+}
+.statistics-4-top{
+    width: 100%;
+    height: 110px;
+    background: #ffc100;
+    overflow: hidden;
+}
+.statistics-4-bottom{
+    width: 100%;
+    height: 110px;
+    background: #fff;
+    border: 1px solid #ffc100;
+}
+.bottom-left-style{
+    width: 50%;
+    height: 80px;
+    border-right: 1px solid red;
+    text-align: right;
+    float: left;
+    padding-top: 18px;
+    padding-right: 10%;
+}
+.bottom-right-style{
+    width: 50%;
+    height: 80px;
+    text-align: left;
+    float: right;
+    padding-top: 18px;
+    padding-left: 10%;
+}
+.bottom-footer{
+    text-align: center;
+    line-height: 30px;
+    width: 100%;
+    font-size: 12px;
+}
+.word-totalUser,.word-totalVisit{
+    font-size: 14px;
+    padding-right: 2px;
+}
+.num-totalUser,.num-lastMonthUser{
+    font-size: 30px;
+    color: #ff4a43;
+    font-weight: bold;
+}
+.word-lastMonthUser,.word-lastMonthVisit{
+    font-size: 14px;
+    padding-left: 6px;
+}
+.num-totalVisit,.num-lastMonthVisit{
+    font-size: 30px;
+    color: #22beef;
+    font-weight: bold;
+}
+.num-audited,.num-notPass{
+    font-size: 30px;
+    font-weight: bold;
+    color: #a2d200;
+}
+.num-totalReport,.num-lastMonthReport{
+    color: #ffc100;
+    font-size: 30px;
+    font-weight: bold;
+}
+#view-hours-div{
+    height: 400px;
+    margin-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.view-hours{
+    width: 100%;
+    height: 400px;
+    background: #1ccdaa;
+}
+#storage-div{
+    height: 400px;
+    margin-top: 40px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+.storage{
+    width: 100%;
+    height: 400px;
+    background: #ffffff;
+    padding: 40px;
+}
+#newUser-div{
+    height: 300px;
+    padding: 0 30px;
+    margin-top: 30px;
+}
+#newUser{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding-top: 30px;
+    padding-left: 20px;
+}

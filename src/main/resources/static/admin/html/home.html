@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>云校园后台管理系统</title>
+	<link rel="Shortcut Icon" href="admin/img/logo.ico">
+	<link rel="stylesheet" type="text/css" href="admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="admin/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="admin/css/main.css">
+	<link rel="stylesheet" type="text/css" href="admin/css/home.css">
+	<script type="text/javascript" src="admin/js/jquery-3.3.1.min.js"></script>
+	<script src="admin/js/echarts.min.js"></script>
+	<script type="text/javascript" src="admin/js/main.js"></script>
+	<script type="text/javascript" src="admin/js/home.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-2" style="height: 60px"></div>
+			<div class="col-xs-2" id="web-top-2">
+				<span class="word-backstage">后台管理系统</span>
+				<span class="word-yun">知乡</span>
+			</div>
+			<div class="col-xs-10" style="height: 60px"></div>
+			<div class="col-xs-10" id="web-top-10">
+				<span class="glyphicon glyphicon-refresh reload"></span>
+				<input type="text" class="inp-search" placeholder="Search">
+				<div class="top-info">
+					<span class="info-account">欢迎！admin</span>
+					<img src="admin/img/wei.jpg" alt="" class="info-head">
+					<span class="info-config" title="安全退出"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2" style="height: 100%;"></div>
+			<div class="col-xs-2" id="web-nav">
+				<div class="web-img">
+					杭州市
+				</div>
+				<ul class="ul-nav-one">
+					<li class="li-one" id="btn-statistics">
+						<div class="nav-icon-div">
+							<span class="fa fa-bar-chart nav-icon"></span>
+						</div>
+						<a>网站统计</a>
+					</li>
+					<li class="li-one">
+						<div id="news">
+							<div class="nav-icon-div">
+								<span class="fa fa-newspaper-o nav-icon"></span>
+							</div>
+							<a>交流社区</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-newsRelease">
+								<div class="nav-icon-div">
+									<span class="fa fa-pencil-square-o nav-icon"></span>
+								</div>
+								<a>社区热门</a>
+							</li>
+							<li id="btn-newsStatistics">
+								<div class="nav-icon-div">
+									<span class="glyphicon glyphicon-list-alt nav-icon"></span>
+								</div>
+								<a>社区推荐</a>
+							</li>
+							<li id="btn-notice">
+								<div class="nav-icon-div">
+									<span class="fa fa-podcast nav-icon"></span>
+								</div>
+								<a>社区来稿</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="active">
+							<div class="nav-icon-div">
+								<span class="fa fa-user-circle nav-icon"></span>
+							</div>
+							<a>管理员</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-alreadyOnline">
+								<div class="nav-icon-div">
+									<span class="fa fa-users nav-icon"></span>
+								</div>
+								<a>管理员管理</a>
+							</li>
+							<li id="btn-toBeAudited">
+								<div class="nav-icon-div">
+									<span class="fa fa-user-plus nav-icon"></span>
+								</div>
+								<a>添加新管理</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one">
+						<div id="shiwu">
+							<div class="nav-icon-div">
+								<span class="fa fa-paper-plane nav-icon"></span>
+							</div>
+							<a>网站文稿</a>
+							<span class="fa fa-angle-left triangle"></span>
+						</div>
+						<ul class="ul-two">
+							<li id="btn-published">
+								<div class="nav-icon-div">
+									<span class="fa fa-puzzle-piece nav-icon"></span>
+								</div>
+								<a>文稿统计</a>
+							</li>
+							<li id="btn-toBeAudited-lost">
+								<div class="nav-icon-div">
+									<span class="fa fa-pencil nav-icon"></span>
+								</div>
+								<a>新建文稿</a>
+							</li>
+						</ul>
+					</li>
+					<li class="li-one" id="btn-user">
+						<div class="nav-icon-div">
+							<span class="fa fa-user nav-icon"></span>
+						</div>
+						<a>用户管理</a>
+					</li>
+					<li class="li-one" id="btn-mess">
+						<div class="nav-icon-div">
+							<span class="fa fa-comments nav-icon"></span>
+						</div>
+						<a>网站留言</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-10" id="web-center">
+				<div class="row">
+					<div class="col-md-12" id="center-top-1">
+						<span class="glyphicon glyphicon-home" id="icon-home"></span>
+						<a href="home.html" class="top-1-style">
+							HOME
+						</a>
+						<span class="shuangxiegang">//</span>
+						<a href="home.html" class="top-1-style active">
+							网站统计
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" id="center-box">
+						<div class="col-md-3 statisticsStyle">
+							<div class="statistics-style-div">
+								<div class="statistics-1-top">
+									<div class="top-left-style">
+										<div class="word-newUser">新用户</div>
+										<div class="num-newUser"></div>
+									</div>
+									<div class="top-right-style">
+										<span class="glyphicon glyphicon-user icon-style"></span>
+									</div>
+								</div>
+								<div class="statistics-1-bottom">
+									<div class="bottom-left-style">
+										<span class="word-totalUser">总用户数</span>
+										<br/>
+										<span class="num-totalUser"></span>
+									</div>
+									<div class="bottom-right-style">
+										<span class="word-lastMonthUser">上个月</span>
+										<br/>
+										<span class="num-lastMonthUser"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 statisticsStyle">
+							<div class="statistics-style-div">
+								<div class="statistics-2-top">
+									<div class="top-left-style">
+										<div class="word-visitor">访客</div>
+										<div class="num-visitor"></div>
+									</div>
+									<div class="top-right-style">
+										<span class="glyphicon glyphicon-eye-open icon-style"></span>
+									</div>
+								</div>
+								<div class="statistics-2-bottom">
+									<div class="bottom-left-style" style="border-color: #22beef">
+										<span class="word-totalVisit">总访问量</span>
+										<br/>
+										<span class="num-totalVisit"></span>
+									</div>
+									<div class="bottom-right-style">
+										<span class="word-lastMonthVisit">上个月</span>
+										<br/>
+										<span class="num-lastMonthVisit"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 statisticsStyle">
+							<div class="statistics-style-div">
+								<div class="statistics-3-top">
+									<div class="top-left-style">
+										<div class="word-auditor">待审核</div>
+										<div class="num-auditor"></div>
+									</div>
+									<div class="top-right-style">
+										<span class="glyphicon glyphicon-question-sign icon-style"></span>
+									</div>
+								</div>
+								<div class="statistics-3-bottom">
+									<div class="bottom-left-style" style="border-color: #a2d200">
+										<span class="word-audited">已审核</span>
+										<br/>
+										<span class="num-audited"></span>
+									</div>
+									<div class="bottom-right-style">
+										<span class="word-notPass">未通过</span>
+										<br/>
+										<span class="num-notPass"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 statisticsStyle">
+							<div class="statistics-style-div">
+								<div class="statistics-4-top">
+									<div class="top-left-style">
+										<div class="word-report">文稿统计</div>
+										<div class="num-report"></div>
+									</div>
+									<div class="top-right-style">
+										<span class="glyphicon glyphicon-edit icon-style"></span>
+									</div>
+								</div>
+								<div class="statistics-4-bottom">
+									<div class="bottom-left-style" style="border-color: #ffc100">
+										<span class="word-totalReport">总文稿数</span>
+										<br/>
+										<span class="num-totalReport"></span>
+									</div>
+									<div class="bottom-right-style">
+										<span class="word-lastMonthReport">上个月</span>
+										<br/>
+										<span class="num-lastMonthReport"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8" id="view-hours-div">
+								<div class="view-hours" id="chart1"></div>
+							</div>
+							<div class="col-md-4" id="storage-div">
+								<div class="storage" id="chart2"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12" id="newUser-div">
+								<div id="newUser"></div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
